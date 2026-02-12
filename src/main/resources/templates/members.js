@@ -20,39 +20,60 @@ const refreshForm = () => {
 //create refresh table function
 const refreshMemberTable = () => {
 
-    let members = getServiceRequest("/member/alldata");
+    let members = getServiceRequest("/members/alldata");
 
     //datatypes
     //string -> strting / date / number
     //function -> object / array / boolean
     let columns = [
-        { property: "reg_no", dataType: "string" },
-        { property: "custname", dataType: "string" },
+        { property: "membercode", dataType: "string" },
+        { property: "name", dataType: "string" },
+        { property: "nic", dataType: "string" },
         { property: "contact_no", dataType: "string" },
-        { property: "address", dataType: "string" },
-        { property: "email", dataType: "string" },
-        { property: getCustStatus, dataType: "function" }
+        { property: "email", dataType: "string" }
     ];
 
     //call fill data into table
-    fillTableFour(tBodyMember, members, columns, memberFormRefill, true);
+    fillDataintoTable(tBodyMember, members, columns, true);
     $('#tableMember').DataTable();
+
 }
+
+//define function for check form errors
+const checkFormError = () => {
+    let errors = "";
+    if (member.name == null) {
+        txtMemberName.style.border = "2px solid red";
+        errors = errors + "Please Enter Member Name.! \n";
+    }
+    if (member.nic == null) {
+        txtNic.style.border = "2px solid red";
+        errors = errors + "Please Enter NIC.! \n";
+    }
+    if (member.contact_no == null) {
+        txtNumber.style.border = "2px solid red";
+        errors = errors + "Please Enter Contact Number.! \n";
+    }
+    if (member.email == null) {
+        txtEmail.style.border = "2px solid red";
+        errors = errors + "Please Enter Email.! \n";
+    }
+    return errors;
+}
+
 
 //define function for submit button
 const buttonMemberRegister = () => {
-
-    ob = member;
     //check if there are any errors
     let errors = checkFormError();
 
     //check errors
     if (errors == "") {
         Swal.fire({
-            title: "Are you sure to Submit Customer " + ob.title + " " + ob.firstname + " " + ob.lastname + " .?",
-            text: "Phone Number : " + customer.contact_no
-                + "\n Email : " + customer.email
-                + "\n Status : " + customer.customerstatus_id.status,
+            title: "Are you sure to Register Member " + member.name + " .?",
+            text: "NIC : " + member.nic
+                + "Phone Number : " + member.contact_no
+                + "\n Email : " + member.email,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "green",
@@ -61,7 +82,7 @@ const buttonMemberRegister = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 //call post
-                let submitResponse = getHTTPServiceRequest('/customer/insert', "POST", customer);
+                let submitResponse = getHTTPServiceRequest('/members/add', "POST", member);
                 if (submitResponse == "OK") {
                     Swal.fire({
                         title: "Saved Successfully.!",
@@ -69,17 +90,13 @@ const buttonMemberRegister = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    refreshForm();
-                    refreshCustomerTable();
                     window.location.reload();
-                    $('#modalCustomer').modal('hide');
                 } else {
                     Swal.fire({
                         title: "Save not Completed..! Has following errors :",
                         text: submitResponse,
                         icon: "info"
                     });
-                    //window.alert("Save not Completed..! \n Has following errors : \n" + submitResponse);
                 }
             }
         });
@@ -100,7 +117,7 @@ txtNic.addEventListener("keyup", () => {
 
     if (regPattern.test(nicValue)) {
         //valid nic
-        employee.nic = nicValue;
+        member.nic = nicValue;
         txtNic.style.border = "2px solid green";
 
         //generate gender and DOB
@@ -122,13 +139,13 @@ txtNic.addEventListener("keyup", () => {
         //nic string value ekak substring ekak kalama return kranneth stringmai, greater than check kranna substring walin bari nisa int value welata maru kregnnawa ParseInt use krela
         if (parseInt(birthdate) > 500) {
             radioFemale.checked = true;
-            employee.gender = "Female";
+            member.gender = "Female";
             // get birthdate
             birthdate = parseInt(birthdate) - 500;
 
         } else {
             radioMale.checked = true;
-            employee.gender = "Male";
+            member.gender = "Male";
         }
 
         let birthdateOb = new Date(birthyear + "-01-01"); //jan 1 wenidain ptn gnne new date ekk hdagnnewa
@@ -152,7 +169,7 @@ txtNic.addEventListener("keyup", () => {
 
         // get birthday
         dateDOB.value = birthyear + "-" + month + "-" + date;
-        employee.dob = dateDOB.value;
+        member.dob = dateDOB.value;
         dateDOB.style.border = "solid green 2px";
 
         // get age
@@ -161,9 +178,38 @@ txtNic.addEventListener("keyup", () => {
         */
     } else {
         //invalid value
-        employee.nic = null;
-        employee.dob = null;
-        employee.gender = null;
+        member.nic = null;
+        member.dob = null;
+        member.gender = null;
         txtNic.style.border = "solid red 2px";
     }
 });
+
+const txtValidator = (elementId, pattern, object, property) => {
+    const elementValue = elementId.value;
+    const regPattern = new RegExp(pattern);
+    ob = window[object];
+
+    if (elementValue != "") {
+        //value not empty
+        if (regPattern.test(elementValue)) {
+            // valid value
+            //employee[email] = abc@gmail.com
+            ob[property] = elementValue;
+            elementId.style.border = "green 2px solid";
+        } else {
+            // invalid value
+            ob[property] = null;
+            elementId.style.border = "red 2px solid";
+        }
+
+    } else {
+        ob[property] = null;
+        // value is empty
+        if (elementId.required) {
+            elementId.style.border = "2px solid red";
+        } else {
+            elementId.style.border = "1px solid #ced4da";
+        }
+    }
+}

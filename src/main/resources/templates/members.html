@@ -12,6 +12,13 @@
     <script src="../Resourse/bootstrap-5.2.3/js/bootstrap.bundle.min.js"></script>
     <!-- link icon files -->
     <link rel="stylesheet" href="../Resourse/fontawesome-free-6.6.0-web/css/all.min.css">
+    <!-- link jquery file-->
+    <script src="../Resourse/jquery-3.7.1.min.js"></script>
+    <!-- link data table file-->
+    <script src="../Resourse/dataTables/datatables.js"></script>
+    <link rel="stylesheet" href="../Resourse/dataTables/datatables.css">
+    <!-- link sweetalert files -->
+    <script src="../Resourse/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
     <title>Members Management</title>
 </head>
 
@@ -22,7 +29,7 @@
                 <div id="pageTitle"> Members Management </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-6">
                 <div class="row table m-0">
                     <!-- Start Table -->
@@ -36,6 +43,7 @@
                                     <th> NIC </th>
                                     <th> Contact No. </th>
                                     <th> Email </th>
+                                    <th>Modify</th>
                                 </tr>
                             </thead>
                             <tbody class="tableBody" id="tBodyMember">
@@ -66,7 +74,6 @@
                             <div class="card-body crdbdy">
                                 <!-- Start Form -->
                                 <form id="formMember" onsubmit="return false">
-                                    <!-- name /contact no/email-->
                                     <div class="row mt-2">
                                         <!-- Start Name -->
                                         <div class="col">
@@ -89,10 +96,9 @@
                                                 <span class="text-danger"> *</span></label>
                                             <div class="col">
                                                 <input type="text" class="form-control" id="txtNic"
-                                                    placeholder="Enter your NIC" required
-                                                    onkeyup="txtNic(this, '', 'member', 'nic')">
+                                                    placeholder="Enter your NIC" required>
                                             </div>
-                                            <div class="form-text text-end">Enter valid NIC (Ex:
+                                            <div class="form-text text-start">Enter valid NIC (Ex:
                                                 xxxx00112233/
                                                 xx123456V)
                                             </div>
@@ -100,7 +106,6 @@
                                         <!-- End Nic -->
                                     </div>
 
-                                    <!-- added Address/status -->
                                     <div class="row mt-3">
                                         <!-- Start Contact no -->
                                         <div class="col">
@@ -159,9 +164,11 @@
                 </div>
                 <!-- End modal-->
             </div>
-
         </div>
     </div>
+
+    <script src="./members.js"></script>
+    <script src="../common.js"></script>
 </body>
 
 </html>
