@@ -1,0 +1,115 @@
+body{
+    background-image: url(../images/3799984-1.jpg);
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-position:fixed;
+}
+#pageTitle{
+    font-size: 50px;
+    font-weight: bold;
+    background: linear-gradient(to right, indigo, purple, rgb(218, 116, 218));
+    color: transparent;
+    background-clip: text;
+    text-decoration:underline rgb(91, 3, 113);
+    border-radius: 10px;
+    font-family:cursive;
+}
+
+h4{
+    color: rgb(151, 4, 146);
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.btncanvas{
+    font-weight: 600;
+    color: rgb(91, 3, 113);
+    border-color: rgb(91, 3, 113);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btncanvas:hover{
+    background-color:  rgb(91, 3, 113);
+    color: aliceblue;
+}
+
+.crdbdy{
+    background-color:rgba(178, 169, 202, 0.76);
+}
+
+.btninput{
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    font-weight: bold;
+    color: black;
+    border-color: rgba(240, 247, 255, 0.685);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px 12px;
+    transition-duration: 0.4s;
+    height: 40px;
+}
+#btn1{
+    background-color: rgb(127, 201, 53);
+}
+#btn1:hover{
+    color: rgb(64, 109, 19);
+    background-color: rgb(224, 224, 224);
+    font-size: 18px;
+}
+
+#btn2{
+    background-color: rgb(247, 222, 84);
+}
+#btn2:hover{
+    color: rgb(180, 147, 0);
+    background-color: rgb(224, 224, 224);
+    font-size: 18px;
+}
+
+#btn3{
+    background-color: rgb(223, 63, 95);   
+}
+#btn3:hover{
+    color:  rgb(214, 25, 63);
+    background-color:rgb(224, 224, 224);
+    font-size: 18px;
+}
+
+.tablet{
+    border-style: groove;
+    border-color: rgb(129, 36, 215);
+    width: 100%;
+    background-image: linear-gradient(to right,rgba(66, 33, 156, 0.863),indigo,rgb(218, 116, 218));
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#tablehead{
+    background-color: rgb(81, 3, 136);
+    text-align: center;
+    color:rgb(243, 243, 243);
+}
+
+tr:nth-child(odd){
+    background-color: rgba(178, 169, 202, 0.76);
+}
+tr:nth-child(even){
+    color: rgb(199, 188, 212);
+}
+
+#tdbtn{
+    text-align: center;
+    height: 60px;
+}
+.button{
+    border-radius: 5px;
+    background-color: rgba(203, 199, 212, 0.76);
+    font-weight: bold;
+    font-size: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    height: 50px;
+    width: 60px;
+}
+.button:hover{
+    background-color: whitesmoke;
+    color: rgb(59, 0, 114);
+}
+.icon{
+    font-size: 18px;
+}

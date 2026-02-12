@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link css files-->
+    <link rel="stylesheet" href="./beauty.css">
+    <!-- link bs5 css -->
+    <link rel="stylesheet" href="../Resourse/bootstrap-5.2.3/css/bootstrap.min.css">
+    <!-- link bs5 js files -->
+    <script src="../Resourse/bootstrap-5.2.3/js/bootstrap.bundle.min.js"></script>
+    <!-- link icon files -->
+    <link rel="stylesheet" href="../Resourse/fontawesome-free-6.6.0-web/css/all.min.css">
+    <title>Members Management</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <div id="pageTitle"> Members Management </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="row table m-0">
+                    <!-- Start Table -->
+                    <div class="col">
+                        <table class="tablet table-bordered" id="tableMember">
+                            <thead>
+                                <tr id="tablehead">
+                                    <th> # </th>
+                                    <th> Member Reg. No </th>
+                                    <th> Member Name </th>
+                                    <th> NIC </th>
+                                    <th> Contact No. </th>
+                                    <th> Email </th>
+                                </tr>
+                            </thead>
+                            <tbody class="tableBody" id="tBodyMember">
+                                <tr>
+                                    <td> 1 </td>
+                                    <td> 20250001 </td>
+                                    <td> Amali </td>
+                                    <td>200152103499</td>
+                                    <td> 0715944275 </td>
+                                    <td> amali@gmail.com </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- End of Table -->
+                </div>
+            </div>
+
+            <div class="col-6">
+                <!-- Start modal-->
+                <div class="container">
+                    <h4 class="modal-title" id="modalMemberLabel">Member Registration Form</h4>
+                </div>
+
+                <div class="row justify-content-md-center">
+                    <div class="col-11">
+                        <div class="card">
+                            <div class="card-body crdbdy">
+                                <!-- Start Form -->
+                                <form id="formMember" onsubmit="return false">
+                                    <!-- name /contact no/email-->
+                                    <div class="row mt-2">
+                                        <!-- Start Name -->
+                                        <div class="col">
+                                            <label for="txtMemberName" class="form-label fw-bold">Member
+                                                Name
+                                                <span class="text-danger"> *</span></label>
+                                            <div class="col">
+                                                <input type="text" id="txtMemberName" class="form-control"
+                                                    placeholder="Member Name" required
+                                                    onkeyup="txtValidator(this,'^([A-Z]{1,6}[a-z]{1,20})|([A-Z][a-z]{1,10}[ ][A-Z][a-z]{0,30})$', 'member', 'name')">
+                                                <div class="form-text">Enter Member name (Ex: Amali)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Name -->
+
+                                        <!-- Start Nic -->
+                                        <div class="col">
+                                            <label for="txtNic" class="form-label fw-bold">NIC
+                                                <span class="text-danger"> *</span></label>
+                                            <div class="col">
+                                                <input type="text" class="form-control" id="txtNic"
+                                                    placeholder="Enter your NIC" required
+                                                    onkeyup="txtNic(this, '', 'member', 'nic')">
+                                            </div>
+                                            <div class="form-text text-end">Enter valid NIC (Ex:
+                                                xxxx00112233/
+                                                xx123456V)
+                                            </div>
+                                        </div>
+                                        <!-- End Nic -->
+                                    </div>
+
+                                    <!-- added Address/status -->
+                                    <div class="row mt-3">
+                                        <!-- Start Contact no -->
+                                        <div class="col">
+                                            <label for="txtNumber" class="form-label fw-bold">Mobile
+                                                Number
+                                                <span class="text-danger"> *</span></label>
+                                            <div class="input-group">
+                                                <div class="col">
+                                                    <input type="text"
+                                                        onkeyup="txtValidator(txtNumber,'^[0][7][01245678][0-9]{7}$', 'member', 'contact_no')"
+                                                        class="form-control" id="txtNumber" placeholder="Phone Number"
+                                                        required>
+                                                </div>
+                                                <span class="input-group-text">
+                                                    <i class="fa-solid fa-square-phone-flip icon"></i></span>
+                                            </div>
+                                            <div class="form-text">Enter valid Phone number</div>
+                                        </div>
+                                        <!-- End Contact no -->
+
+                                        <!-- Start Email -->
+                                        <div class="col">
+                                            <label for="txtEmail" class="form-label fw-bold">Email</label>
+                                            <div class="col">
+                                                <input type="email" class="form-control col" id="txtEmail"
+                                                    placeholder="Enter Email"
+                                                    onkeyup="txtValidator(this,'^[a-zA-Z0-9\\%]{6,20}[@][a-z]{4,10}[.][a-z]{2,3}$', 'member', 'email')">
+                                                <div class="form-text">Enter valid Email (Ex:
+                                                    abcdf@gmail.com)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Email -->
+                                    </div>
+
+                                    <!-- Make Buttons -->
+                                    <div class="row mt-4 d-flex">
+                                        <div class="col-8 text-start">
+                                            <button class="btn btn-danger btninput" type="button" id="btnclr"
+                                                onclick="buttonMemberClear()">Clear <i
+                                                    class="fa-solid fa-arrows-rotate"></i></button>
+                                        </div>
+                                        <div class="col text-end">
+                                            <button class="btn btn-success btninput" type="submit"
+                                                onclick="buttonMemberRegister()" id="btnsubmit">
+                                                Register
+                                                <i class="fa-solid fa-user-plus"></i></button>
+                                        </div>
+                                    </div>
+                                    <!-- End Buttons -->
+                                </form>
+                                <!-- End form -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End modal-->
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

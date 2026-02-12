@@ -1,0 +1,135 @@
+body{
+    background-color: #FDE595;
+    /* background-image:linear-gradient(to bottom, #FDE595); */
+    background-repeat:no-repeat;
+}
+.btnCollapse{
+    font-size:30px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color:#371a12;
+    color: transparent;
+    background-clip: text;
+    border: none;
+}
+#pageTitle{
+    font-size: 35px;
+    font-weight: bold;
+    /* background: linear-gradient(to right, indigo, purple, rgb(218, 116, 218)); */
+    background: linear-gradient(to right, #6f2f14, #974617, #ba661d);
+    color: transparent;
+    background-clip: text;
+    text-decoration:underline #371a12;
+    border-radius: 10px;
+    font-family:cursive;
+}
+.title{
+    border-radius: 10px;
+    border-left: 3px solid #6f2f14;
+    border-top: 3px solid  #974617;
+    border-right: 3px solid #ba661d;
+    border-bottom: 3px solid #BF7543;
+}
+
+.crdbdy{
+    background-color:#fcca5ecb;
+}
+
+.btninput{
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    font-weight: bold;
+    color: black;
+    border-color: rgba(255, 252, 240, 0.685);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px 10px;
+    transition-duration: 0.4s;
+    height: 40px;
+}
+#btnsubmit{
+    background-color: rgb(127, 201, 53);
+}
+#btnsubmit:hover{
+    color: rgb(64, 109, 19);
+    background-color: rgb(224, 224, 224);
+    font-size: 18px;
+}
+
+#btnupdate{
+    background-color: rgb(247, 222, 84);
+}
+#btnupdate:hover{
+    color: rgb(180, 147, 0);
+    background-color: rgb(224, 224, 224);
+    font-size: 18px;
+}
+
+#btnclr{
+    background-color: rgb(223, 63, 95);   
+}
+#btnclr:hover{
+    color:  rgb(214, 25, 63);
+    background-color:rgb(224, 224, 224);
+    font-size: 18px;
+}
+
+.tablet{
+    border-style: groove;
+    /* border-color: rgb(129, 36, 215); */
+    border-color: #371a12;
+    width: 100%;
+    background-color: white;
+    /* background-image: linear-gradient(to right,rgba(66, 33, 156, 0.78),indigo,rgba(218, 116, 218, 0.8)); */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+#th1{
+    text-align: center;
+    color:rgb(243, 243, 243);
+    background-color: #BF7543;
+}
+
+/* tr:nth-child(odd){
+    background-color: rgba(178, 169, 202, 0.76);
+}
+tr:nth-child(even){
+    color: rgb(199, 188, 212);
+} */
+
+#tdbtn{
+    text-align: center;
+    height: 60px;
+}
+.button{
+    border-radius: 5px;
+    background-color: transparent;
+    color:#6f2f14;
+    font-weight: bold;
+    font-size: 11px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    height: 55px;
+    width: 60px;
+    text-align: center;
+}
+
+#btnedit:hover{
+    color: black;
+    background-color: goldenrod;
+    background: linear-gradient(to bottom, goldenrod, rgb(238, 216, 77), rgb(255, 255, 169));
+}
+#btnprint:hover{
+    color: white;
+    background: linear-gradient(to bottom, rgb(14, 71, 0), rgb(13, 153, 13), rgb(109, 222, 86));
+}
+#btndelete:hover{
+    color: white;
+    background: linear-gradient(to bottom, rgb(122, 7, 7), rgb(255, 37, 37), rgb(255, 148, 148));
+
+}
+.icon{
+    font-size: 22px;
+}
+
+#modalEmployeePrint{
+    font-family:'Times New Roman', Times, serif;
+}
